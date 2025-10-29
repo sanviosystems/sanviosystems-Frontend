@@ -1,0 +1,191 @@
+.upload-container {
+  max-width: 900px;
+  margin: 40px auto;
+  background: #fff;
+  padding: 25px 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.upload-title {
+  text-align: center;
+  color: rgb(183, 28, 28);
+  font-weight: 700;
+  margin-bottom: 25px;
+  font-size: 26px;
+}
+
+/* Image preview grid */
+/* Image preview grid */
+.image-preview-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 25px;
+  border: 2px dashed rgb(183, 28, 28);
+  padding: 15px;
+  border-radius: 10px;
+  background: #fff8f8;
+}
+
+/* ✅ Smaller image cards */
+.image-card {
+  position: relative;
+  width: 130px;   /* smaller width */
+  height: 130px;  /* smaller height */
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.image-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.image-card:hover img {
+  transform: scale(1.05);
+}
+
+/* Delete (×) button */
+.remove-image {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: rgb(183, 28, 28);
+  border: none;
+  color: #fff;
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  font-size: 15px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.remove-image:hover {
+  background: rgb(211, 97, 96);
+}
+
+@media (max-width: 600px) {
+  .image-card {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+.no-image {
+  color: #777;
+  font-style: italic;
+}
+
+/* Form */
+.upload-form-modern {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 220px;
+}
+
+.form-group.full {
+  flex: 1 1 100%;
+}
+
+label {
+  font-weight: 600;
+  color: rgb(80, 80, 80);
+  margin-bottom: 6px;
+}
+
+input,
+textarea,
+select {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+  outline: none;
+  transition: border 0.3s;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border: 1.5px solid rgb(183, 28, 28);
+}
+
+textarea {
+  min-height: 100px;
+}
+
+.modern-submit {
+  background: rgb(183, 28, 28);
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 10px;
+  transition: background 0.3s;
+}
+
+.modern-submit:hover {
+  background: rgb(211, 97, 96);
+}
+
+@media (max-width: 600px) {
+  .image-card {
+    width: 130px;
+    height: 130px;
+  }
+}
+
+/* 🔄 Loader overlay */
+.overlay-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.85);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  font-family: sans-serif;
+  color: #333;
+}
+
+/* 🔄 Spinner */
+.spinner {
+  border: 6px solid #e0e0e0;
+  border-top: 6px solid #007bff;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 10px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

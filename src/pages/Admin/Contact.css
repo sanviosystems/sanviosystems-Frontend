@@ -1,0 +1,115 @@
+/* ✅ Main container */
+.contact-admin {
+  padding: 20px;
+  max-width: 1100px;
+  margin: auto;
+  font-family: "Poppins", sans-serif;
+}
+
+.contact-admin h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 25px;
+  font-size: 1.8rem;
+}
+
+.empty {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #888;
+}
+
+/* ✅ Table container */
+.table-wrapper {
+  overflow-x: auto;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* ✅ Table design */
+.contact-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 800px;
+}
+
+.contact-table th {
+  background-color: #f8f9fa;
+  color: #444;
+  font-weight: 600;
+  padding: 14px;
+  text-align: left;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.contact-table td {
+  padding: 14px;
+  border-bottom: 1px solid #e0e0e0;
+  color: #333;
+  vertical-align: top;
+  word-wrap: break-word;
+}
+
+.contact-table tr:hover {
+  background-color: #f9f9f9;
+  transition: 0.2s;
+}
+
+/* ✅ Delete Button */
+.delete-btn {
+  background-color: #e63946;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: 0.2s;
+}
+
+.delete-btn:hover {
+  background-color: #d62828;
+}
+
+/* ✅ Responsive Design */
+@media (max-width: 768px) {
+  .contact-table,
+  .contact-table thead,
+  .contact-table tbody,
+  .contact-table th,
+  .contact-table td,
+  .contact-table tr {
+    display: block;
+  }
+
+  .contact-table thead tr {
+    display: none;
+  }
+
+  .contact-table tr {
+    margin-bottom: 15px;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    padding: 10px;
+  }
+
+  .contact-table td {
+    border: none;
+    padding: 8px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+  }
+
+  .contact-table td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    color: #555;
+    flex: 1;
+    text-transform: capitalize;
+  }
+}
