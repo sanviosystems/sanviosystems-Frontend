@@ -1,36 +1,19 @@
 
 
-
-
-
-
-
-
 import React from "react";
 
 const Office_automation_pos_solutions_ludhiana = () => {
   return (
     <>
 
-
-
-      {/* Show full-width image only on non-admin pages */}
-
-
       <div style={{ padding: "30px 20px", maxWidth: "900px", margin: "80px auto", color: "#333", fontFamily: "Arial, sans-serif", textAlign: "justify", lineHeight: "1.7" }}>
         <h1 style={{ fontSize: "2rem", marginBottom: "20px", textAlign: "center" }}>
-
-
 
         </h1>
         <h1> Benefits of Office Automation & POS Solutions by TVS Distributor   </h1><br />
         <p >
-
-
           Streamline your business with  <a href="">Sanvio Systems</a> Ludhiana. Get smart Office Automation & POS Solutions from TVS Electronics Ltd. <br />
-
           In today’s competitive business environment, automation isn’t a luxury — it’s a necessity. Whether you’re running a retail store, restaurant, or office, smart automation tools can help reduce operational inefficiencies, improve accuracy, and boost profitability.
-
           As a trusted provider of office automation and POS solutions in Ludhiana, offers tailored technologies designed to meet the evolving needs of modern businesses.
 
         </p>
@@ -39,8 +22,6 @@ const Office_automation_pos_solutions_ludhiana = () => {
           Office automation is the use of hardware and software solutions to streamline, digitize, and optimize daily operations — ranging from inventory management and billing to printing and data recording. By reducing human error and increasing efficiency, office automation transforms how companies work.
 
         </p>
-
-
         <h2 style={{ fontSize: "1.5rem", marginTop: "30px" }}>Why Choose Sanvio Systems Ludhiana? </h2><br />
         <p>• Trusted in Ludhiana since 1992   </p> <br />
         <p>• Authorized distributor for <a href="https://www.tvselectronics.in/">TVS Electronics Ltd </a>   </p> <br />

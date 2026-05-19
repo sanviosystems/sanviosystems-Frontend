@@ -24,7 +24,11 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import RefundsANDReturnPolicy from "./pages/RefundsANDReturnPolicy";
 import SustainabilityPolicy from "./pages/SustainabilityPolicy";
 
-// Blog/Service Pages
+// Blog/Service Pages  (Mobile_Printers_That_Boost_Productivity_in_Retail)
+import Thermalvsdotmatrixprinter from './pages/Thermalvsdotmatrixprinter';
+import Bestposprinterretailshopindia from "./pages/Bestposprinterretailshopindia";
+import Bestcashdrawerforretailstores from "./pages/Bestcashdrawerforretailstores"
+import MatrixPrinter from "./pages/MatrixPrinter";
 import Sanvio_systems_business_automation_efficiency_solutions from "./pages/Sanvio_systems_business_automation_efficiency_solutions";
 import Revolutionizing_it_automation_ludhiana_sanvio from "./pages/Revolutionizing_it_automation_ludhiana_sanvio";
 import Sanvio_systems_ludhiana_retail_technology from "./pages/Sanvio_systems_ludhiana_retail_technology";
@@ -36,6 +40,9 @@ import Why_every_retail_business_needs_modern_pos_solution from "./pages/Why_eve
 import Sanvio_systems_digital_retail from "./pages/Sanvio_systems_digital_retail";
 import TVS_E_Label_Printers from "./pages/TVS_E_Label_Printers";
 import Best_thermal_tvse_printers_sanviosystems from "./pages/Best_thermal_tvse_printers_sanviosystems";
+import Mobile_Printers_That_Boost_Productivity_in_Retail from "./pages/Mobile_Printers_That_Boost_Productivity_in_Retail";
+import Sanviosystemstvsesparesconsumables from "./pages/Sanviosystemstvsesparesconsumables";
+
 
 // Admin
 import AdminPanel from "./pages/Admin/AdminPanel";
@@ -75,6 +82,8 @@ function App() {
         <Route path="/sustainabilitypolicy" element={<SustainabilityPolicy />} />
 
         {/* Blog/Service Pages */}
+        <Route path="/thermalvsdotmatrixprinter" element={<Thermalvsdotmatrixprinter />} />
+        <Route path="/bestposprinterretailshopindia" element={<Bestposprinterretailshopindia />} />
         <Route path="/sanvio_systems_business_automation_efficiency_solutions" element={<Sanvio_systems_business_automation_efficiency_solutions />} />
         <Route path="/revolutionizing_it_automation_ludhiana_sanvio" element={<Revolutionizing_it_automation_ludhiana_sanvio />} />
         <Route path="/sanvio_systems_ludhiana_retail_technology" element={<Sanvio_systems_ludhiana_retail_technology />} />
@@ -86,6 +95,10 @@ function App() {
         <Route path="/Sanvio_systems_digital_retail" element={<Sanvio_systems_digital_retail />} />
         <Route path="/TVS_E_Label_Printers" element={<TVS_E_Label_Printers />} />
         <Route path="/Best_thermal_tvse_printers_sanviosystems" element={<Best_thermal_tvse_printers_sanviosystems />} />
+        <Route path="/Mobile_Printers_That_Boost_Productivity_in_Retail" element={<Mobile_Printers_That_Boost_Productivity_in_Retail />} />
+        <Route path="/MatrixPrinter" element={<MatrixPrinter/>}/>
+        <Route path="/Bestcashdrawerforretailstores" element={<Bestcashdrawerforretailstores/>}/>
+        <Route path="/Sanviosystemstvsesparesconsumables" element={<Sanviosystemstvsesparesconsumables/>}/>
 
         {/* Login Route (Before admin) */}
         <Route path="/login" element={<Login />} />

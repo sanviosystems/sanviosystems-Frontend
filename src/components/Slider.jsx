@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 // 🔹 Desktop images
 const desktopImages = [
- 
+  
   "/Barcode-Scanners.webp",
   "/Touch-Pos-System.webp",
   "/TVS-HANDHELD-TOUCH-POS-TERMINAL-SIZE-COMPOSS.webp",
@@ -10,7 +10,9 @@ const desktopImages = [
   "/Label-Printer.webp",
   "/tvs-mouse.webp",
   "/tvs keyboards.webp",
-  "/TVS-CASH-DRAWERS-SIZE-COMPOSS.webp",
+  "/TVS-CASH-DRAWERS-SIZE-COMPOSS.png",
+  "/Roll-paper.jpg",
+  "/ACCESSORIES.jpg"
 
 ];
 

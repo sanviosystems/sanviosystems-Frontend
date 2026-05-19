@@ -43,8 +43,14 @@ const MyCart = () => {
     window.dispatchEvent(new Event("cartUpdated")); // update badge
   };
 
+  // Calculate total price with offer
   const getTotal = () => {
-    return cart.reduce((sum, item) => sum + item.price * (item.quantity || 1), 0);
+    return cart.reduce((sum, item) => {
+      const price = item.offer
+        ? item.price - (item.price * item.offer) / 100
+        : item.price;
+      return sum + price * (item.quantity || 1);
+    }, 0);
   };
 
   if (cart.length === 0) {
@@ -74,54 +80,61 @@ const MyCart = () => {
       <h2 style={{ textAlign: "center", marginBottom: "20px" }}>🛒 My Cart</h2>
 
       <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
-        {cart.map((item) => (
-          <div
-            key={item._id}
-            style={{
-              display: "flex",
-              flexWrap: "wrap",
-              alignItems: "center",
-              border: "1px solid #ddd",
-              borderRadius: "10px",
-              padding: "15px",
-              boxShadow: "0 4px 8px rgba(0,0,0,0.08)",
-              justifyContent: "space-between",
-            }}
-          >
-            <div style={{ display: "flex", alignItems: "center", gap: "20px" }}>
-              <img
-                src={item.images[0]}
-                alt={item.name}
-                style={{ width: "100px", height: "100px", objectFit: "contain", borderRadius: "8px" }}
-              />
-              <div>
-                <h3 style={{ marginBottom: "5px" }}>{item.name}</h3>
-                <p style={{ margin: "5px 0" }}>₹{item.price}</p>
-                <div style={{ display: "flex", alignItems: "center", gap: "10px", marginTop: "5px" }}>
-                  <button onClick={() => updateQuantity(item._id, -1)} style={qtyBtn}>−</button>
-                  <span style={{ fontWeight: "600" }}>{item.quantity || 1}</span>
-                  <button onClick={() => updateQuantity(item._id, 1)} style={qtyBtn}>+</button>
-                </div>
-                <p style={{ color: "#555", marginTop: "5px" }}>
-                  Total: ₹{item.price * (item.quantity || 1)}
-                </p>
-              </div>
-            </div>
-            <button
-              onClick={() => handleRemove(item._id)}
+        {cart.map((item) => {
+          const discountedPrice = item.offer
+            ? (item.price - (item.price * item.offer) / 100).toFixed(2)
+            : item.price;
+          return (
+            <div
+              key={item._id}
               style={{
-                padding: "8px 16px",
-                backgroundColor: "#ff4d4d",
-                color: "white",
-                border: "none",
-                borderRadius: "6px",
-                cursor: "pointer",
+                display: "flex",
+                flexWrap: "wrap",
+                alignItems: "center",
+                border: "1px solid #ddd",
+                borderRadius: "10px",
+                padding: "15px",
+                boxShadow: "0 4px 8px rgba(0,0,0,0.08)",
+                justifyContent: "space-between",
               }}
             >
-              Remove
-            </button>
-          </div>
-        ))}
+              <div style={{ display: "flex", alignItems: "center", gap: "20px" }}>
+                <img
+                  src={item.images[0]}
+                  alt={item.name}
+                  style={{ width: "100px", height: "100px", objectFit: "contain", borderRadius: "8px" }}
+                />
+                <div>
+                  <h3 style={{ marginBottom: "5px" }}>{item.name}</h3>
+                  <p style={{ margin: "5px 0" }}>
+                    ₹{discountedPrice} {item.offer && <span style={{ color: 'green' }}>({item.offer}% OFF)</span>}
+                  </p>
+                  <div style={{ display: "flex", alignItems: "center", gap: "10px", marginTop: "5px" }}>
+                    <button onClick={() => updateQuantity(item._id, -1)} style={qtyBtn}>−</button>
+                    <span style={{ fontWeight: "600" }}>{item.quantity || 1}</span>
+                    <button onClick={() => updateQuantity(item._id, 1)} style={qtyBtn}>+</button>
+                  </div>
+                  <p style={{ color: "#555", marginTop: "5px" }}>
+                    Total: ₹{(discountedPrice * (item.quantity || 1)).toFixed(2)}
+                  </p>
+                </div>
+              </div>
+              <button
+                onClick={() => handleRemove(item._id)}
+                style={{
+                  padding: "8px 16px",
+                  backgroundColor: "#ff4d4d",
+                  color: "white",
+                  border: "none",
+                  borderRadius: "6px",
+                  cursor: "pointer",
+                }}
+              >
+                Remove
+              </button>
+            </div>
+          );
+        })}
       </div>
 
       {/* Cart Summary */}
@@ -133,7 +146,7 @@ const MyCart = () => {
           fontWeight: "600",
         }}
       >
-        Total: ₹{getTotal()}
+        Total: ₹{getTotal().toFixed(2)}
         <button
           onClick={() => navigate("/buy-now", { state: { cart } })}
           style={{

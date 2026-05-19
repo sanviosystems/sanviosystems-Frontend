@@ -388,7 +388,25 @@ const Touch_Pos = () => {
                         alt={product.name}
                       />
                       <div className="product-name">{product.name}</div>
-                      <div className="product-price">₹{product.price}</div>
+                      <div className="product-price">
+                        {product.offer ? (
+                          <>
+                            <span style={{ textDecoration: "line-through", color: "gray", marginRight: "5px" }}>
+                              ₹{product.price}
+                            </span>
+                            <span style={{ color: "green", fontWeight: "bold", marginRight: "5px" }}>
+                              ₹{((product.price * (100 - product.offer)) / 100).toFixed(2)}
+                            </span>
+                            <span style={{ color: "red", fontWeight: "bold" }}>
+                              ({product.offer}% Off)
+                            </span>
+                          </>
+                        ) : (
+                          <span>₹{product.price}</span>
+                        )}
+
+                      </div>
+
                       <div className="product-rating">{renderStars(product.rating)}</div>
                     </Link>
 

@@ -2,6 +2,57 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const blogData = [
+   
+   {  
+    path: '/thermalvsdotmatrixprinter',
+    title: 'Thermal Printer vs Dot Matrix Printer for GST Billing',
+    description: 'Confused between a thermal and a dot matrix model for GST billing? Compare speed, cost, paper type, durability, and choose the best billing printer for your business.',
+    image: '/images/thermal-printer.webp',
+    category: 'POS Printers',
+    date: 'May 16, 2026'
+   }, 
+   
+  {  
+    path: '/Bestposprinterretailshopindia',
+    title: 'Best POS Printer for Retail Shop India 2026 — Top Picks &amp; Buyer&#39;s Guide ',
+    description: 'Looking for the best POS printer for your retail shop in India. Discover top TVS Electronics models in 2026 — fast, reliable &amp; GST-ready. Buy from Sanvio Systems!  ',
+    image: '/best-pos-printer-retail-shop-india-sanvio-systems.webp',
+    category: 'Label Printers ',
+    date: 'Apr 1, 2026'
+  },
+  {
+    path: '/Sanviosystemstvsesparesconsumables',
+    title: 'TVS-E Original Spares  Printer Consumables – Sanvio Systems ',
+    description: 'Shop genuine TVS-E original spares and printer consumables at Sanvio Systems. Get reliable parts, fast delivery, and expert support for all Official Hardware Components printer models. ',
+    image: '/sanvio-systems-tvs-e-spares-consumables.jpg',
+    category: 'POS Printer ',
+    date: 'May 8, 2026'
+  },
+
+  {
+    path: '/bestcashdrawerforretailstores',
+    title: 'Best Cash Drawer for Retail Stores: Features ; Buying Guide ',
+    description: 'Looking for the best cash drawer for retail stores? Discover features, buying tips, and top TVS models to upgrade your POS setup.',
+    image: '/Touch POS System.jpg',
+    category: 'Label Printers ',
+    date: 'Mar 18, 2026'
+  },
+  {
+    path: '/MatrixPrinter',
+    title: 'Best Dot Matrix Printer for Small Business ; GST Billing',
+    description: ' Best dot matrix printer for small business ; GST billing in India. Ideal for invoices, carbon copy bills, low running cost, and daily heavy usage. ',
+    image: '/MatrixPrinter.jpg',
+    category: 'Dot Matrix Printer for Small Business   ',
+    date: 'jan 31, 2026'
+  },
+  {
+    path: '/Mobile_Printers_That_Boost_Productivity_in_Retail',
+    title: 'Mobile Printers That Boost Productivity in Retail & Logistics ',
+    description: ' In today’s fast-paced retail and logistics environment, businesses need speed, accuracy, and efficiency more than ever. Mobile Printing devices, by Sanvio systems, have emerged as a game-changer, allowing retailers and logistics companies to print receipts, invoices, labels, and shipping tags on the go.  ',
+    image: '/Mobile Printers That Boost Productivity in Retail & Logistics.jpeg',
+    category: 'Mobile Printers That Boost Productivity in Retail & Logistics   ',
+    date: 'jan 07, 2026'
+  },
   {
     path: '/best_thermal_tvse_printers_sanviosystems',
     title: 'Best Thermal TVSE Printers by Sanvio Systems: Price, Performance & Support ',
@@ -175,7 +226,7 @@ const Blogs = () => {
 .card-image {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* thoda crop hoga par UI better lagegi */
+  object-fit: cover; 
 }
 
 .card-content {
@@ -221,8 +272,6 @@ const Blogs = () => {
   background-color: #ff5722;
   color: white;
 }
-
-        
         .read-more-btn::after {
           content: '→';
           margin-left: 8px;

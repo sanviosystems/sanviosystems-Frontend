@@ -7,7 +7,8 @@ const AllProducts = () => {
 
   // For editing product info
   const [editingProduct, setEditingProduct] = useState(null);
-  const [editForm, setEditForm] = useState({ name: "", price: "", category: "" });
+  const [editForm, setEditForm] = useState({ name: "", price: "", category: "", offer: "", description: "", });
+
 
   // For editing image
   const [editingImage, setEditingImage] = useState(null);
@@ -55,6 +56,8 @@ const AllProducts = () => {
       name: product.name,
       price: product.price,
       category: product.category,
+      offer: product.offer,
+      description: product.description,
     });
   };
 
@@ -142,7 +145,7 @@ const AllProducts = () => {
                             alt={`${p.name} ${index + 1}`}
                             className="product-img"
                           />
-                          
+
                         </div>
                       ))}
                     </div>
@@ -190,6 +193,23 @@ const AllProducts = () => {
               value={editForm.category}
               onChange={(e) => setEditForm({ ...editForm, category: e.target.value })}
             />
+
+            <label>Offer (%) :</label>
+            <input
+              type="number"
+              value={editForm.offer}
+              onChange={(e) => setEditForm({ ...editForm, offer: e.target.value })}
+            />
+
+            <label>Description:</label>
+            <textarea
+              value={editForm.description}
+              onChange={(e) => setEditForm({ ...editForm, description: e.target.value })}
+              rows="4"
+              placeholder="Enter product description"
+            />
+
+
 
             <div className="modal-buttons">
               <button className="btn save-btn" onClick={handleEditSave}>

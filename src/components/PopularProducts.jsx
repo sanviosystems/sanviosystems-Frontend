@@ -18,6 +18,7 @@ const PopularProducts = () => {
         'product_img/tvs-print-head.webp',
         'product_img/tp 415c smart.jpg',
         'product_img/BS-i203z_Platina.webp',
+        
     ];
 
     const videoStyle = {

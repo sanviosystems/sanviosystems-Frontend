@@ -13,7 +13,7 @@ const UploadProducts = () => {
   });
 
   const [previewImages, setPreviewImages] = useState([]);
-  const [isLoading, setIsLoading] = useState(false); // 🔄 Loader state
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -22,7 +22,7 @@ const UploadProducts = () => {
 
   const handleImageUpload = (e) => {
     const newFiles = Array.from(e.target.files);
-    const allFiles = [...product.images, ...newFiles].slice(0, 5); // max 5 images
+    const allFiles = [...product.images, ...newFiles].slice(0, 5);
     setProduct((prev) => ({ ...prev, images: allFiles }));
     const newPreviews = newFiles.map((file) => URL.createObjectURL(file));
     setPreviewImages((prev) => [...prev, ...newPreviews].slice(0, 5));
@@ -39,11 +39,11 @@ const UploadProducts = () => {
     e.preventDefault();
 
     if (!product.name || !product.category) {
-      alert("⚠️ Please fill Product Name, & Category!");
+      alert("⚠️ Please fill Product Name & Category!");
       return;
     }
 
-    setIsLoading(true); // 🔄 Show loader
+    setIsLoading(true);
 
     try {
       const CLOUD_NAME = "dwavtlwjj";
@@ -57,35 +57,39 @@ const UploadProducts = () => {
 
           const response = await fetch(
             `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`,
-            {
-              method: "POST",
-              body: formData,
-            }
+            { method: "POST", body: formData }
           );
 
           if (!response.ok) throw new Error("Cloudinary upload failed");
-
           const data = await response.json();
           return data.secure_url;
         })
       );
 
+      const discountedPrice =
+        product.price && product.offer
+          ? (Number(product.price) * (100 - Number(product.offer))) / 100
+          : product.price;
+
       const newProduct = {
-  name: product.name,
-  description: product.description,
-  offer: product.offer,
-  rating: product.rating,
-  category: product.category,
-  images: uploadedImageURLs,
-  ...(product.price && { price: Number(product.price) }), 
-};
+        name: product.name,
+        description: product.description,
+        price: Number(product.price),
+        offer: product.offer ? Number(product.offer) : 0,
+        discountedPrice: discountedPrice ? Number(discountedPrice.toFixed(2)) : null,
+        rating: product.rating,
+        category: product.category,
+        images: uploadedImageURLs,
+      };
 
-
-      const backendResponse = await fetch("https://backend-k59u.onrender.com/api/products", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(newProduct),
-      });
+      const backendResponse = await fetch(
+        "https://backend-k59u.onrender.com/api/products",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(newProduct),
+        }
+      );
 
       if (!backendResponse.ok) throw new Error("Failed to save product to backend");
 
@@ -103,7 +107,7 @@ const UploadProducts = () => {
     } catch (error) {
       alert("❌ Error uploading product: " + error.message);
     } finally {
-      setIsLoading(false); // ✅ Hide loader
+      setIsLoading(false);
     }
   };
 
@@ -111,7 +115,7 @@ const UploadProducts = () => {
     "Barcode Scanners",
     "Currency Counters",
     "Cash Drawers",
-    "Computing devices - laptops, tablets,desktops ",
+    "Computing devices - laptops, tablets, desktops",
     "Consumables",
     "Dot Matrix Printers",
     "Keyboards and Mouse",
@@ -125,6 +129,11 @@ const UploadProducts = () => {
     "Thermal Receipt Printers",
     "Web Camera",
   ];
+
+  const discountedPrice =
+    product.price && product.offer
+      ? (Number(product.price) * (100 - Number(product.offer))) / 100
+      : product.price;
 
   return (
     <div className="upload-container">
@@ -175,6 +184,19 @@ const UploadProducts = () => {
           </div>
 
           <div className="form-group">
+            <label>Offer (%)</label>
+            <input
+              type="number"
+              name="offer"
+              value={product.offer}
+              onChange={handleChange}
+              min="0"
+              max="100"
+              placeholder="Enter discount %"
+            />
+          </div>
+
+          <div className="form-group">
             <label>Rating (1–5)</label>
             <input
               type="number"
@@ -198,6 +220,19 @@ const UploadProducts = () => {
             ))}
           </select>
         </div>
+
+        {product.price && (
+          <div className="price-preview">
+            {product.offer ? (
+              <>
+                <span className="original-price">₹{product.price}</span>
+                <span className="discounted-price">₹{discountedPrice.toFixed(2)}</span>
+              </>
+            ) : (
+              <span className="normal-price">₹{product.price}</span>
+            )}
+          </div>
+        )}
 
         <button type="submit" className="modern-submit">
           Upload Product 🚀
